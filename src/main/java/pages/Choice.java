@@ -58,14 +58,14 @@ public class Choice extends GeneralPanel{
 
     public Choice checkAmountDevices(String technicalType){
         if(technicalType.equals("Телевизоры")) {
-            if (devicesTV.size() != 12)
-                checkAmountDevices(technicalType);
+            WebDriverWait wait = new WebDriverWait(driver,5);
+            wait.until(ExpectedConditions.numberOfElementsToBe(By.xpath("//div[@class= 'n-snippet-card2__title']"),12));
             int actualAmount = devicesTV.size();
             Assert.assertEquals("Не совпадает кол-во телевизоров", 12, actualAmount);
         }
         if(technicalType.equals("Наушники")) {
-            if (devicesHeadphones.size() != 12)
-                checkAmountDevices(technicalType);
+            WebDriverWait wait = new WebDriverWait(driver,5);
+            wait.until(ExpectedConditions.numberOfElementsToBe(By.xpath("//div[@class= 'n-snippet-cell2__title']"),12));
             int actualAmount = devicesHeadphones.size();
             Assert.assertEquals("Не совпадает кол-во телевизоров", 12, actualAmount);
         }
